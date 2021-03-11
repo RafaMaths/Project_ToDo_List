@@ -1,8 +1,17 @@
+
+/*código executado por interação entre os estudantes 
+Rafael Mathias, Lotar Lucas, Renan Braga, Felippe Correa,
+com colaboração do Gustavo Cerqueira e Matheus Gois.
+*/
+
 const task = document.getElementById('texto-tarefa');
 const btnCriaTarefa = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 const btnLimpar = document.querySelector('#apaga-tudo');
-const removerFinalizadas = document.querySelector('#remover-finalizados');
+const btnRemoverFinalizadas = document.querySelector('#remover-finalizados');
+const btnSalvaLista = document.querySelector('#salvar-tarefas');
+const btnMoverCima
+const btnMoverBaixo
 
 function selectLi(event) {
   const listLi = document.querySelectorAll('.tarefa');
@@ -49,9 +58,25 @@ btnLimpar.addEventListener('click', () => {
   // }
 });
 
-removerFinalizadas.addEventListener('click', () => {
+btnRemoverFinalizadas.addEventListener('click', () => {
   const array = document.querySelectorAll('.completed');
   for (let index = 0; index < array.length; index += 1) {
     list.removeChild(array[index]);
   }
 });
+const storage = localStorage;
+
+btnSalvaLista.addEventListener('click', () => {
+  storage.setItem('lista', list.innerHTML);
+});
+
+window.onload = () => {
+  list.innerHTML = storage.getItem('lista');
+  const listChild = list.children;
+  for (let index = 0; index < listChild.length; index += 1) {
+    const element = listChild[index];
+
+    element.addEventListener('click', selectLi);
+    element.addEventListener('dblclick', mark);
+  }
+};
