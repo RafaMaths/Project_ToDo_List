@@ -2,6 +2,7 @@ const task = document.getElementById('texto-tarefa');
 const btnCriaTarefa = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 const btnLimpar = document.querySelector('#apaga-tudo');
+const removerFinalizadas = document.querySelector('#remover-finalizados');
 
 function selectLi(event) {
   const listLi = document.querySelectorAll('.tarefa');
@@ -24,9 +25,9 @@ function criarTarefa() {
   novoItem.addEventListener('click', selectLi);
   novoItem.addEventListener('dblclick', mark);
   novoItem.innerText = task.value;
-  // if (!(task.value).trim()) {
-  //   return alert('Adicione uma tarefa');
-  // }
+  if (!task.value.trim()) {
+    return alert('Adicione uma tarefa');
+  }
   list.appendChild(novoItem);
   task.value = '';
   task.focus();
@@ -46,4 +47,11 @@ btnLimpar.addEventListener('click', () => {
   // for (let i = 0; i < array.length; i += 1) {
   //   list.removeChild(array[i]);
   // }
+});
+
+removerFinalizadas.addEventListener('click', () => {
+  const array = document.querySelectorAll('.completed');
+  for (let index = 0; index < array.length; index += 1) {
+    list.removeChild(array[index]);
+  }
 });
