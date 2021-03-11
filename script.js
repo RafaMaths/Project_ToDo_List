@@ -10,8 +10,8 @@ const list = document.getElementById('lista-tarefas');
 const btnLimpar = document.querySelector('#apaga-tudo');
 const btnRemoverFinalizadas = document.querySelector('#remover-finalizados');
 const btnSalvaLista = document.querySelector('#salvar-tarefas');
-const btnMoverCima
-const btnMoverBaixo
+const btnMoverCima = document.querySelector('#mover-cima');
+const btnMoverBaixo = document.querySelector('#mover-baixo');
 
 function selectLi(event) {
   const listLi = document.querySelectorAll('.tarefa');
@@ -43,8 +43,7 @@ function criarTarefa() {
 }
 
 btnCriaTarefa.addEventListener('click', criarTarefa);
-task.addEventListener('keyup', (event) => {
-  console.log(event.key);
+window.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
     criarTarefa();
   }
@@ -80,3 +79,26 @@ window.onload = () => {
     element.addEventListener('dblclick', mark);
   }
 };
+
+// btnMoverCima  btnMoverBaixo
+
+btnMoverCima.addEventListener('click', () => {
+  document.querySelector('.selected');
+
+}
+)
+
+
+// const selected = document.querySelector('.selected');
+// const lower = selected.nextElementSibling;
+// taskList.removeChild(lower);
+// selected.insertAdjacentElement('beforebegin', lower); 
+
+// const selected = document.querySelector('.selected');
+// if (selected && selected.previousSibling) {       
+// const upper = selected.previousSibling;
+// taskList.removeChild(upper);
+// selected.insertAdjacentElement('afterend', upper);
+// }
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
