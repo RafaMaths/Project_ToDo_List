@@ -1,4 +1,3 @@
-
 /*código executado por interação entre os estudantes 
 Rafael Mathias, Lotar Lucas, Renan Braga, Felippe Correa,
 com colaboração do Gustavo Cerqueira e Matheus Gois.
@@ -51,10 +50,6 @@ window.addEventListener('keyup', (event) => {
 
 btnLimpar.addEventListener('click', () => {
   list.innerHTML = '';
-  // let array = document.querySelectorAll('.tarefa');
-  // for (let i = 0; i < array.length; i += 1) {
-  //   list.removeChild(array[i]);
-  // }
 });
 
 btnRemoverFinalizadas.addEventListener('click', () => {
@@ -84,21 +79,4 @@ window.onload = () => {
 
 btnMoverCima.addEventListener('click', () => {
   document.querySelector('.selected');
-
-}
-)
-
-
-// const selected = document.querySelector('.selected');
-// const lower = selected.nextElementSibling;
-// taskList.removeChild(lower);
-// selected.insertAdjacentElement('beforebegin', lower); 
-
-// const selected = document.querySelector('.selected');
-// if (selected && selected.previousSibling) {       
-// const upper = selected.previousSibling;
-// taskList.removeChild(upper);
-// selected.insertAdjacentElement('afterend', upper);
-// }
-
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
+});
